@@ -1,36 +1,33 @@
 function Home() {
   return (
-    <div
-      style={{
-        width: "100vw",
-        display: "flex",
-        justifyContent: "center",
-      }}
-    >
-      <div>
-        <div
-          style={{
-            width: "80vw",
-            display: "flex",
-            flexDirection: "column",
-            alignItems: "center",
-          }}
-        >
-          <h2>Seja bem-vinde! </h2>
-          <p>Expresse aqui seus pensamentos e opniões</p>
+    <div className="flex justify-center bg-indigo-900">
+      <div
+        className="container
+      grid
+      grid-cols-2
+      text-white"
+      >
+        <div className="flex flex-col items-center justify-center gap-4 py-4">
+          <h2
+            className="text-5xl
+          font-bold
+          "
+          >
+            Seja bem-vinde!{" "}
+          </h2>
+          <p className="text-xl">Expresse aqui seus pensamentos e opniões</p>
+          <div className="flex justify-around gap-4">
+            <div className="rounded border-white border-solid border-2 py-2 px-4 text-white">
+              Nova Postagem
+            </div>
+          </div>
         </div>
-        <div
-          style={{
-            width: "80vw",
-            display: "flex",
-            flexDirection: "column",
-            alignItems: "center",
-          }}
-        >
+
+        <div className="flex justify-center ">
           <img
             src="https://i.imgur.com/VpwApCU.png"
             alt="Imagem da pagina home"
-            width="400px"
+            className="w-2/3"
           />
         </div>
       </div>
