@@ -1,11 +1,12 @@
 function Home() {
   return (
-    <div className="flex justify-center bg-indigo-900 ">
+    <div className="flex justify-center bg-pink-200 ">
       <div
         className="container 
       grid
       grid-cols-2
-      text-white 
+      text-purple-900
+     font-code
       max-sm:flex
       max-sm:flex-col-reverse
      "
@@ -14,6 +15,7 @@ function Home() {
           <h2
             className="text-5xl
           font-bold
+          
           max-sm:text-2xl
           "
           >
@@ -22,18 +24,18 @@ function Home() {
           <p className="text-xl  max-sm:text-base">
             Expresse aqui seus pensamentos e opniões
           </p>
-          <div className="flex justify-around gap-4">
-            <div className="rounded border-white border-solid border-2 py-2 px-4 text-white">
+          <div className="flex justify-around gap-4 ">
+            <div className="rounded-xl border-purple border-solid border-1 py-2 px-4 text-purple-90">
               Nova Postagem
             </div>
           </div>
         </div>
 
-        <div className="flex justify-center ">
+        <div className="flex justify-center items-center ">
           <img
-            src="https://i.imgur.com/VpwApCU.png"
+            src="https://ik.imagekit.io/3ov0fr7b9/usuarios/speak%20out%20girl.gif?updatedAt=1739560203323"
             alt="Imagem da pagina home"
-            className="w-2/3  "
+            className="w-2/3 h-2/3"
           />
         </div>
       </div>

@@ -1,35 +1,26 @@
+import { Link } from "react-router-dom";
+
 function Navbar() {
   return (
     <div
       className="
   flex
-  bg-indigo-900 justify-center
+  bg-purple-950
+  justify-center  
+       font-poppins  
+
   text-white"
     >
       <div className="container py-4 flex justify-between max-sm:justify-center">
-        <div>
-          <a href="" className="text-xl font-semibold ">
-            Blog pessoal
-          </a>
+        <div className="text-xl font-semibold">
+          <Link to="/home"> Blog pessoal</Link>
         </div>
-        <nav>
-          <ul className="flex gap-2 max-sm:hidden">
-            <li>
-              <a href="">Postagens</a>
-            </li>
-            <li>
-              <a href="">Temas</a>
-            </li>
-            <li>
-              <a href="">Cadastrar tema</a>
-            </li>
-            <li>
-              <a href="">Perfil</a>
-            </li>
-            <li>
-              <a href="">Sair</a>
-            </li>
-          </ul>
+        <nav className="flex gap-2 max-sm:hidden">
+          <Link to="/">Postagens </Link>
+          <Link to="/">Temas </Link>
+          <Link to="/">Cadastrar tema </Link>
+          <Link to="/">Perfil </Link>
+          <Link to="/login">Sair </Link>
         </nav>
       </div>
     </div>
