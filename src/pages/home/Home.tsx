@@ -1,6 +1,6 @@
 function Home() {
   return (
-    <div className="flex justify-center bg-pink-200 ">
+    <div className="flex justify-center bg-pink-100 ">
       <div
         className="container 
       grid
