@@ -32,7 +32,7 @@ function Login() {
   }
   console.log(JSON.stringify(usuarioLogin));
   return (
-    <div className="grid grid-cols-2 h-full place-items-center font-bold ">
+    <div className="grid grid-cols-2 h-full place-items-center font-bold font-poppins">
       <form
         className="flex justify-center items-center flex-col w-1/2 gap-4"
         onSubmit={login}

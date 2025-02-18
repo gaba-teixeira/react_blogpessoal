@@ -60,11 +60,11 @@ function Cadastro() {
   return (
     <div
       className="grid grid-cols-2 h-full
-         place-items-center font-bold"
+         place-items-center font-bold font-poppins"
     >
       <div className="fundoCadastro"></div>
       <form
-        className="flex justify-center items-center flex-col w-2/3 gap-3"
+        className="flex justify-center items-center flex-col w-2/3 gap-3 mt-4"
         onSubmit={cadastrarNovoUsuario}
       >
         <h2 className="text-slate-900 text-4xl">Cadastrar</h2>

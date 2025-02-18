@@ -8,7 +8,7 @@ function Navbar() {
 
   function logout() {
     handleLogout();
-    alert("O Usuário foi desconectado com sucesso!");
+    alert("O Usuário foi desconectado com sucesso!  ");
     navigate("/");
   }
   return (
@@ -27,8 +27,12 @@ function Navbar() {
         </div>
         <nav className="flex gap-2 max-sm:hidden">
           <Link to="/">Postagens </Link>
-          <Link to="/">Temas </Link>
-          <Link to="/">Cadastrar tema </Link>
+          <Link to="/temas" className="hover:underline">
+            Temas
+          </Link>
+          <Link to="/cadastrartema" className="hover:underline">
+            Cadastrar tema
+          </Link>
           <Link to="/">Perfil </Link>
           <Link to="" onClick={logout} className="hover:underline">
             Sair
