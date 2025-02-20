@@ -1,3 +1,5 @@
+import ModalPostagem from "../../components/postagem/modalpostagem/ModalPostagem";
+
 function Home() {
   return (
     <div className="flex justify-center bg-pink-100 ">
@@ -25,9 +27,7 @@ function Home() {
             Expresse aqui seus pensamentos e opniões
           </p>
           <div className="flex justify-around gap-4 ">
-            <div className="rounded-xl border-purple border-solid border-1 py-2 px-4 text-purple-90">
-              Nova Postagem
-            </div>
+            <ModalPostagem/>
           </div>
         </div>
 
