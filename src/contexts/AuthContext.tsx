@@ -30,9 +30,9 @@ export function AuthProvider({ children }: AuthProviderProps) {
 
     try {
       await login("/usuarios/logar", usuarioLogin, setUsuario);
-      alert("O usuário foi autenticado com sucesso!");
+      ToastAlert("O usuário foi autenticado com sucesso!", "sucesso");
     } catch (error) {
-      alert("Dados do usuário inconsistentes.");
+      ToastAlert("Dados do usuário inconsistentes.", "erro");
     }
     setIsLoading(false);
   }
@@ -48,8 +48,13 @@ export function AuthProvider({ children }: AuthProviderProps) {
   }
 
   return (
-    <AuthContext.Provider value={{usuario, handleLogin, handleLogout, isLoading}}>
-        {children}
+    <AuthContext.Provider
+      value={{ usuario, handleLogin, handleLogout, isLoading }}
+    >
+      {children}
     </AuthContext.Provider>
-  )
+  );
+}
+function ToastAlert(arg0: string, p0: string) {
+  throw new Error("Function not implemented.");
 }

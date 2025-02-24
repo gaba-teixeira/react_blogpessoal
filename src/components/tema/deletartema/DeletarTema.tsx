@@ -70,7 +70,7 @@ function DeletarTema() {
           Você tem certeza de que deseja apagar o tema a seguir?
         </p>
       </div>
-      <div className="border flex flex-col rounded-2xl overflow-hidden justify-between w-md mt-8 m-2 font-poppins">
+      <div className="border font-poppins flex flex-col rounded-2xl overflow-hidden justify-between w-md mt-8 m-2">
         <header className="py-2 px-6 bg-purple-900 text-white font-bold text-xl">
           Tema
         </header>
@@ -78,7 +78,7 @@ function DeletarTema() {
         <div className="flex">
           <button
             className="text-slate-100 bg-pink-400 hover:bg-pink-900 w-full 
-                    flex items-center justify-center cursor-pointer"
+                    flex items-center justify-center font-code cursor-pointer"
             onClick={retornar}
           >
             Não
@@ -86,7 +86,7 @@ function DeletarTema() {
 
           <button
             className="w-full text-slate-100 bg-purple-400 hover:bg-purple-950 
-                        flex items-center justify-center py-2 cursor-pointer"
+                        flex items-center justify-center py-2 cursor-pointer font-code"
             onClick={deletarTema}
           >
             {isLoading ? (

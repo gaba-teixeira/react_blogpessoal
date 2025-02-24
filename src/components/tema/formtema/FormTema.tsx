@@ -103,7 +103,7 @@ function FormTema() {
           className="border-2 rounded-1xl border-purple-400 focus:border-purple-800 focus:outline  w-160 p-2"
         ></input>
         <button
-          className="rounded-2xl text-slate-100 bg-purple-500
+          className="rounded-2xl font-code text-slate-100 bg-purple-500
                                hover:bg-purple-900 w-2/5 py-2 mx-auto flex justify-center mt-2 cursor-pointer"
           type="submit"
         >

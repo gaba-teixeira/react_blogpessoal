@@ -22,7 +22,7 @@ function CardTemas({ tema }:  CardTemasProps) {
             `/editartema/${tema.id}`
           }
           className="w-full text-slate-100 bg-purple-400 hover:bg-purple-950 
-                        flex items-center justify-center py-2 cursor-pointer"
+                        flex items-center justify-center py-2 cursor-pointer font-code"
         >
           <button>Editar</button>
         </Link>
@@ -30,7 +30,7 @@ function CardTemas({ tema }:  CardTemasProps) {
         <Link
           to=  {`/deletartema/${tema.id}`}
           className="text-slate-100 bg-pink-400 hover:bg-pink-900 w-full 
-                    flex items-center justify-center cursor-pointer"
+                    flex items-center justify-center cursor-pointe font-code"
         >
           <button>Deletar</button>
         </Link>

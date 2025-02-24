@@ -154,7 +154,7 @@ function FormPostagem() {
   }
 
   return (
-    <div className="container flex flex-col mx-auto items-center">
+    <div className="container flex flex-col mx-auto items-center font-poppins">
       <h1 className="text-4xl text-center my-8">
         {" "}
         {id !== undefined ? "Editar Postagem" : "Cadastrar Postagem"}
@@ -206,7 +206,7 @@ function FormPostagem() {
         </div>
         <button
           type="submit"
-          className="rounded disabled:bg-slate-200 bg-purple-500 hover:bg-purple-950
+          className="rounded font-code disabled:bg-slate-200 bg-purple-500 hover:bg-purple-950
                                text-white font-bold w-1/2 mx-auto py-2 flex justify-center"
           disabled={carregandoTema}
         >
