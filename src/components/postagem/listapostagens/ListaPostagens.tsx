@@ -5,11 +5,12 @@ import Postagem from "../../../models/Postagem";
 import { AuthContext } from "../../../contexts/AuthContext";
 import { buscar } from "../../../services/Service";
 import { DNA } from "react-loader-spinner";
+import { ToastAlerta } from "../../../utils/ToastAlerta";
 
 function ListaPostagens() {
   const navigate = useNavigate();
 
-  //Declarando o estado da postagem, onde monitoraremos o tamanho do array para renderizar os cards em tela 
+  //Declarando o estado da postagem, onde monitoraremos o tamanho do array para renderizar os cards em tela
   const [postagens, setPostagens] = useState<Postagem[]>([]);
 
   //pegando o usuario e a função de logout da context para acessar o token
@@ -18,8 +19,7 @@ function ListaPostagens() {
   //Declarando o token
   const token = usuario.token;
 
-
-  //Função de buscarPostagem - importando o metodo 'buscar' da service e chamando a função logout se der erro no token 
+  //Função de buscarPostagem - importando o metodo 'buscar' da service e chamando a função logout se der erro no token
   async function buscarPostagens() {
     try {
       await buscar("/postagens", setPostagens, {
@@ -34,19 +34,18 @@ function ListaPostagens() {
     }
   }
 
-  //useEffect para alertar sobre o token e redirecionar para o login, monitora o token
-    useEffect(() => {
-      if (token === "") {
-        alert("Você precisa estar logado");
-        navigate("/");
-      }
-    }, [token]);
+  //useEffect para ToastAlertaar sobre o token e redirecionar para o login, monitora o token
+  useEffect(() => {
+    if (token === "") {
+      ToastAlerta("Você precisa estar logado", "info");
+      navigate("/");
+    }
+  }, [token]);
 
-
-  //useEffect para chamar função de busca, monitora o tamanho da postagem. 
-    useEffect(() => {
-      buscarPostagens();
-    }, [postagens.length]);
+  //useEffect para chamar função de busca, monitora o tamanho da postagem.
+  useEffect(() => {
+    buscarPostagens();
+  }, [postagens.length]);
 
   return (
     <>

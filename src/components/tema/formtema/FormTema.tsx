@@ -4,6 +4,7 @@ import { AuthContext } from "../../../contexts/AuthContext";
 import Tema from "../../../models/Tema";
 import { atualizar, buscar, cadastrar } from "../../../services/Service";
 import { RotatingLines } from "react-loader-spinner";
+import { ToastAlerta } from "../../../utils/ToastAlerta";
 
 function FormTema() {
   const navigate = useNavigate();
@@ -15,32 +16,30 @@ function FormTema() {
 
   const { id } = useParams<{ id: string }>();
 
-   async function buscarTemasPorId(id: string) {
-      try {
-        await buscar(`/temas/${id}`, setTema, {
-          headers: { Authorization: token },
-        });
-      } catch (error: any) {
-        if (error.toString().includes("401")) {
-          handleLogout();
-        }
+  async function buscarTemasPorId(id: string) {
+    try {
+      await buscar(`/temas/${id}`, setTema, {
+        headers: { Authorization: token },
+      });
+    } catch (error: any) {
+      if (error.toString().includes("401")) {
+        handleLogout();
       }
     }
-  
+  }
 
   useEffect(() => {
     if (token === "") {
-      alert("Você precisa fazer o login!");
+      ToastAlerta("Você precisa fazer o login!", 'info');
       navigate("/");
     }
   }, [token]);
 
-
-    useEffect(() => {
-      if (id !== undefined) {
-        buscarTemasPorId(id)
-      }
-    }, [id]);
+  useEffect(() => {
+    if (id !== undefined) {
+      buscarTemasPorId(id);
+    }
+  }, [id]);
 
   function atualizarEstado(e: ChangeEvent<HTMLInputElement>) {
     setTema({
@@ -57,25 +56,25 @@ function FormTema() {
         await atualizar("/temas", tema, setTema, {
           headers: { Authorization: token },
         });
-        alert("Tema atualizado com sucesso");
+        ToastAlerta("Tema atualizado com sucesso", 'sucesso');
       } catch (error: any) {
         if (error.toString().includes("401")) {
           handleLogout();
         } else {
-          alert("Erro ao atualizar o tema");
-        } 
+          ToastAlerta("Erro ao atualizar o tema", 'erro');
+        }
       }
     } else {
       try {
         await cadastrar("/temas", tema, setTema, {
           headers: { Authorization: token },
         });
-        alert("Tema cadastrado com sucesso");
+        ToastAlerta("Tema cadastrado com sucesso", 'sucesso');
       } catch (error: any) {
         if (error.toString().includes("401")) {
           handleLogout();
         } else {
-          alert("Erro ao cadastrar o tema");
+          ToastAlerta("Erro ao cadastrar o tema", 'erro');
         }
       }
     }

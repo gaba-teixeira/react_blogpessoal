@@ -4,6 +4,7 @@ import { AuthContext } from "../../../contexts/AuthContext";
 import Postagem from "../../../models/Postagem";
 import { buscar, deletar } from "../../../services/Service";
 import { RotatingLines } from "react-loader-spinner";
+import { ToastAlerta } from "../../../utils/ToastAlerta";
 
 function DeletarPostagem() {
   const navigate = useNavigate();
@@ -32,7 +33,7 @@ function DeletarPostagem() {
 
   useEffect(() => {
     if (token === "") {
-      alert("Você precisa estar logado");
+      ToastAlerta("Você precisa estar logado", "erro");
       navigate("/");
     }
   }, [token]);
@@ -53,12 +54,12 @@ function DeletarPostagem() {
         },
       });
 
-      alert("Postagem apagada com sucesso");
+      ToastAlerta("Postagem apagada com sucesso", 'sucesso');
     } catch (error: any) {
       if (error.toString().includes("403")) {
         handleLogout();
       } else {
-        alert("Erro ao deletar a postagem.");
+        ToastAlerta("Erro ao deletar a postagem.", 'erro');
       }
     }
 
@@ -71,14 +72,14 @@ function DeletarPostagem() {
   }
 
   return (
-    <div className="container w-1/3 mx-auto">
+    <div className="container w-1/3 mx-auto font-poppins">
       <h1 className="text-4xl text-center my-4">Deletar Postagem</h1>
 
       <p className="text-center font-semibold mb-4">
         Você tem certeza de que deseja apagar a postagem a seguir?
       </p>
 
-      <div className="border  bg-rose-100 flex flex-col rounded-2xl overflow-hidden justify-between">
+      <div className="border bg-rose-100 flex flex-col rounded-2xl overflow-hidden justify-between">
         <header className="py-2 px-6  bg-pink-400 text-black font-bold text-2xl">
           Postagem
         </header>
@@ -88,13 +89,13 @@ function DeletarPostagem() {
         </div>
         <div className="flex">
           <button
-            className="text-slate-100 bg-red-400 hover:bg-red-600 w-full py-2"
+            className="text-slate-100 bg-red-400 font-code hover:bg-red-600 w-full py-2"
             onClick={retornar}
           >
             Não
           </button>
           <button
-            className="w-full text-slate-100 bg-purple-400 
+            className="w-full text-slate-100 bg-purple-400 font-code
                         hover:bg-purple-800 flex items-center justify-center"
             onClick={deletarPostagem}
           >
@@ -117,3 +118,5 @@ function DeletarPostagem() {
 }
 
 export default DeletarPostagem;
+
+

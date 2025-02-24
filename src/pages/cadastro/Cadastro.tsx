@@ -4,6 +4,7 @@ import { ChangeEvent, FormEvent, useEffect, useState } from "react";
 import Usuario from "../../models/Usuario";
 import { cadastrarUsuario } from "../../services/Service";
 import { RotatingLines } from "react-loader-spinner";
+import { ToastAlerta } from "../../utils/ToastAlerta";
 
 function Cadastro() {
   const navigate = useNavigate();
@@ -45,12 +46,12 @@ function Cadastro() {
       setIsLoading(true);
       try {
         await cadastrarUsuario("/usuarios/cadastrar", usuario, setUsuario);
-        alert("Usuario cadastrado com sucesso!");
+        ToastAlerta("Usuario cadastrado com sucesso!", 'sucesso');
       } catch (error) {
-        alert("Erro ao cadastrar usuario");
+        ToastAlerta("Erro ao cadastrar usuario", 'erro');
       }
     } else {
-      alert("Dados do usuario errado");
+      ToastAlerta("Dados do usuario errado", 'erro');
       setUsuario({ ...usuario, senha: " " });
       setConfirmarSenha("");
     }
@@ -67,7 +68,7 @@ function Cadastro() {
         className="flex justify-center items-center flex-col w-2/3 gap-3 mt-4"
         onSubmit={cadastrarNovoUsuario}
       >
-        <h2 className="text-slate-900 text-4xl">Cadastrar</h2>
+        <h2 className="text-slate-900 text-4xl">Cadastrar</h2>    
         <div className="flex flex-col w-full">
           <label htmlFor="nome">Nome</label>
           <input

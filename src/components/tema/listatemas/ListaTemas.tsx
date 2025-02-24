@@ -5,6 +5,7 @@ import { AuthContext } from "../../../contexts/AuthContext";
 import Tema from "../../../models/Tema";
 import { buscar } from "../../../services/Service";
 import { DNA } from "react-loader-spinner";
+import { ToastAlerta } from "../../../utils/ToastAlerta";
 
 function ListaTemas() {
   const navigate = useNavigate();
@@ -27,7 +28,7 @@ function ListaTemas() {
 
   useEffect(() => {
     if (token === "") {
-      alert("Você precisa fazer o login!");
+      ToastAlerta("Você precisa fazer o login!", 'info');
       navigate("/");
     }
   }, [token]);

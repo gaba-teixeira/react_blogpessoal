@@ -5,6 +5,7 @@ import Postagem from "../../../models/Postagem";
 import Tema from "../../../models/Tema";
 import { buscar, atualizar, cadastrar } from "../../../services/Service";
 import { RotatingLines } from "react-loader-spinner";
+import { ToastAlerta } from "../../../utils/ToastAlerta";
 
 function FormPostagem() {
   const navigate = useNavigate();
@@ -56,7 +57,6 @@ function FormPostagem() {
     }
   }
 
-
   //buscando todos os temas que serão renderizados no campo select
   async function buscarTemas() {
     try {
@@ -73,7 +73,7 @@ function FormPostagem() {
   //acompanha o token para saber se usuario está autenticado
   useEffect(() => {
     if (token === "") {
-      alert("Você precisa estar logado");
+      ToastAlerta("Você precisa estar logado", 'info');
       navigate("/");
     }
   }, [token]);
@@ -95,8 +95,6 @@ function FormPostagem() {
       tema: tema,
     });
   }, [tema]);
-
-
 
   function atualizarEstado(e: ChangeEvent<HTMLInputElement>) {
     setPostagem({
@@ -123,12 +121,12 @@ function FormPostagem() {
           },
         });
 
-        alert("Postagem atualizada com sucesso");
+        ToastAlerta("Postagem atualizada com sucesso", 'sucesso');
       } catch (error: any) {
         if (error.toString().includes("401")) {
           handleLogout();
         } else {
-          alert("Erro ao atualizar a Postagem");
+          ToastAlerta("Erro ao atualizar a Postagem", 'erro');
         }
       }
     } else {
@@ -139,12 +137,12 @@ function FormPostagem() {
           },
         });
 
-        alert("Postagem cadastrada com sucesso");
+        ToastAlerta("Postagem cadastrada com sucesso", 'sucesso');
       } catch (error: any) {
         if (error.toString().includes("401")) {
           handleLogout();
         } else {
-          alert("Erro ao cadastrar a Postagem");
+          ToastAlerta("Erro ao cadastrar a Postagem", 'erro');
         }
       }
     }

@@ -1,6 +1,6 @@
-import { toast } from "react-toastify";
+﻿import { toast } from "react-toastify";
 
-export function ToastAlert(mensagem: string, tipo: string) {
+export function ToastAlerta(mensagem: string, tipo: string) {
   switch (tipo) {
     case "sucesso":
       toast.success(mensagem, {
